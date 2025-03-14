@@ -12,4 +12,4 @@ npm run dev
 
 ## Demo
 
-![](./docs/videos/demo.mp4)
+[See `docs/videos/demo.mp4`](./docs/videos/demo.mp4)
