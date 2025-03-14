@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -25,9 +26,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased`}
       >
-        {children}
+        <header className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-sm shadow-sm dark:bg-gray-950/80">
+          <div className="container mx-auto flex h-16 max-w-7xl items-center px-4 md:px-6 text-primary">
+            <Link href="#" className="flex items-center gap-2 mr-10" prefetch={false}>
+              <span className="text-lg font-bold">School Portal</span>
+            </Link>
+            <nav className="hidden space-x-6 md:flex">
+              <Link href="/classes" className="text-sm font-medium hover:text-primary dark:hover:text-primary" prefetch={false}>
+                Classes
+              </Link>
+              <Link href="/teachers" className="text-sm font-medium hover:text-primary dark:hover:text-primary" prefetch={false}>
+                Teachers
+              </Link>
+            </nav>
+          </div>
+        </header>
+        <div className="container mx-auto mt-25 max-w-7xl px-4 md:px-6">
+          {children}
+        </div>
       </body>
     </html>
   );
